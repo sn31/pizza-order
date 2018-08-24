@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <link href="https://fonts.googleapis.com/css?family=Fascinate+Inline|Yanone+Kaffeesatz" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nosifer|Ubuntu" rel="stylesheet">
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="css/styles.css" rel="stylesheet" type="text/css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
@@ -15,7 +15,12 @@
 <body>
     <div class="container-fluid">
         <header>
-            <h1>PizzaGal - Ordering System</h1>
+            <h1 class="ml14">
+                <span class="text-wrapper">
+                    <span class="letters">PizzaGal</span>
+                    <span class="line"></span>
+                </span>
+            </h1>
         </header>
         <main>
             <section class="orderInput">
@@ -60,20 +65,20 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card">
+                            </div><br>
+                            <div class="card">
                                     <div class="card-header">
                                         <h4 class="card-title">Size</h4>
                                     </div>
                                     <div class="card-body">
                                         <label class="radio">
-                                            <input type="radio" name="optradio" value="small" checked>&nbsp;&nbsp;Small</label>&nbsp;&nbsp;&nbsp;
+                                            <input type="radio" name="optradio" value="Small" checked>&nbsp;&nbsp;Small</label>&nbsp;&nbsp;&nbsp;
                                         <label class="radio">
-                                            <input type="radio" name="optradio" value="medium">&nbsp;&nbsp;Medium</label>&nbsp;&nbsp;&nbsp;
+                                            <input type="radio" name="optradio" value="Medium">&nbsp;&nbsp;Medium</label>&nbsp;&nbsp;&nbsp;
                                         <label class="radio">
-                                            <input type="radio" name="optradio" value="large">&nbsp;&nbsp;Large</label>&nbsp;&nbsp;&nbsp;
+                                            <input type="radio" name="optradio" value="Large">&nbsp;&nbsp;Large</label>&nbsp;&nbsp;&nbsp;
                                     </div>
                                 </div>
-                            </div>
                             <br>
                             <button type="submit" class="btn btn-success">Add to Cart</button>
                         </form>
@@ -90,19 +95,22 @@
                                 </p>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <h6>Items</h6><hr>
+                                        <h6>Items</h6>
+                                        <hr>
                                         <ul id="cartContent">
 
                                         </ul>
                                     </div>
                                     <div class="col-md-3">
-                                        <h6>Price</h6><hr>
+                                        <h6>Price</h6>
+                                        <hr>
                                         <ul id="itemPrice">
 
                                         </ul>
                                     </div>
                                     <div class="col-md-3">
-                                        <h6>Quantity</h6><hr>
+                                        <h6>Quantity</h6>
+                                        <hr>
                                     </div>
                                 </div>
                                 <hr>
@@ -110,8 +118,9 @@
                                     <div class="col-md-9"></div>
                                     <div class="col-md-3">
                                         <h6>Subtotal:
-                                                <span class="subTotal">$0.00</span>
-                                        </h6><hr>
+                                            <span class="subTotal">$0.00</span>
+                                        </h6>
+                                        <hr>
                                         <p>Tax:&nbsp;
                                             <span id="tax">$0.00</span>
                                         </p>
@@ -126,7 +135,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div><br>
+                        </div>
+                        <br>
 
                         <div class="card receipt">
                             <div class="card-header">
@@ -135,7 +145,7 @@
                             <div class="card-body">
                                 <p>Thank you for ordering! Your total is:
                                     <span class="subTotal">
-                                        
+
                                     </span>
                                 </p>
                             </div>

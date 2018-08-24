@@ -5,8 +5,39 @@
 
 h1 {
     text-align: center;
+    margin-bottom: 10vh;
+    font-family: 'Nosifer', cursive;
 }
 
 .receipt {
     display:none;
+}
+
+body {
+    background-image: url(../img/11.jpg);
+    font-family: 'Ubuntu', sans-serif;
+}
+  
+  .ml14 .text-wrapper {
+    position: relative;
+    display: inline-block;
+    padding-top: 0.1em;
+    padding-right: 0.05em;
+    padding-bottom: 0.15em;
+  }
+  
+  .ml14 .line {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: #fff;
+    transform-origin: 100% 100%;
+    bottom: 0;
+  }
+
+.card {
+    background-color: transparent;
+    border: 1px solid black;
 }
