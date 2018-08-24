@@ -2,16 +2,17 @@ function Pizza(size, toppings) {
     this.size = size;
     this.toppings = toppings;
     this.price = 0;
+    this.description = "";
 }
 
-var sizePricing = { "Small": 5, "Medium": 7, "Large": 9 }
+var sizePricing = { "small": 5, "medium": 7, "large": 9 }
 var toppingPricing = {
-    "Pepperoni": 0.99,
-    "Ham": 0.99,
-    "Italian Sausage": 0.99,
-    "Mushrooms": 0.49,
-    "Pineapple": 0.59,
-    "Spinach": 0.49,
+    "pepperoni": 0.99,
+    "ham": 0.99,
+    "italian sausage": 0.99,
+    "mushrooms": 0.49,
+    "pineapple": 0.59,
+    "spinach": 0.49,
 }
 
 Pizza.prototype.getPrice = function () {
@@ -20,6 +21,10 @@ Pizza.prototype.getPrice = function () {
         totalToppingPricing += toppingPricing[this.toppings[i]];
     }
     this.price = (sizePricing[this.size] + totalToppingPricing);
+}
+
+Pizza.prototype.getDescription = function () {
+    this.description = this.size + " pizza with " + this.toppings.join(", ") ;
 }
 
 $(document).ready(function () {
@@ -32,7 +37,10 @@ $(document).ready(function () {
         var size = $("input:radio:checked").val();
         var newPizza = new Pizza(size, toppings)
         newPizza.getPrice();
-        console.log(newPizza.price)
+        newPizza.getDescription();
+        $("#orderReceipt").append(newPizza.getDescription());
+        console.log(newPizza.price);
+        console.log(newPizza.description);
         
     })
 })
