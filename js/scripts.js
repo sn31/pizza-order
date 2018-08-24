@@ -38,7 +38,7 @@ $(document).ready(function () {
         var newPizza = new Pizza(size, toppings)
         newPizza.getPrice();
         newPizza.getDescription();
-        $("#orderReceipt").append("<li>" + newPizza.description + "</li>");
-        console.log(newPizza.description);
+        $("#cartContent").append("<li>" + newPizza.description + "</li>");
+        $("input").prop('checked', false);
     })
 })
