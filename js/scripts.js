@@ -17,14 +17,14 @@ var toppingPricing = {
 
 Pizza.prototype.getPrice = function () {
     var totalToppingPricing = 0;
-    for (var i =0; i< this.toppings.length;i++) {
+    for (var i = 0; i < this.toppings.length; i++) {
         totalToppingPricing += toppingPricing[this.toppings[i]];
     }
     this.price = (sizePricing[this.size] + totalToppingPricing);
 }
 
 Pizza.prototype.getDescription = function () {
-    this.description = this.size + " pizza with " + this.toppings.join(", ") ;
+    this.description = this.size + " pizza with " + this.toppings.join(", ");
 }
 
 $(document).ready(function () {
@@ -38,9 +38,7 @@ $(document).ready(function () {
         var newPizza = new Pizza(size, toppings)
         newPizza.getPrice();
         newPizza.getDescription();
-        $("#orderReceipt").append(newPizza.getDescription());
-        console.log(newPizza.price);
+        $("#orderReceipt").append("<li>" + newPizza.description + "</li>");
         console.log(newPizza.description);
-        
     })
 })
