@@ -30,7 +30,7 @@ Pizza.prototype.getPrice = function () {
 }
 
 Pizza.prototype.getDescription = function () {
-    this.description = this.size + " pizza with " + this.toppings.join(", ");
+    this.description = (this.toppings.length !== 0) ? (this.size + " pizza with " + this.toppings.join(", ")) : (this.size + " pizza");
 }
 
 Order.prototype.getTax = function() {
@@ -54,9 +54,14 @@ $(document).ready(function () {
         newOrder.getTax();
         
         $("#cartContent").append("<li>" + newPizza.description + "</li>");
-        $("#itemPrice").append("<li>" + newPizza.price + "</li>");
+        $("#itemPrice").append("<li> $" + newPizza.price.toFixed(2) + "</li>");
         $("#total").text("$"+ (newOrder.totalPrice + newOrder.tax).toFixed(2));
+        $(".subTotal").text(" $"+ (newOrder.totalPrice).toFixed(2));
         $("#tax").text("$"+ (newOrder.tax).toFixed(2));
-        $("input").prop('checked', false);
+        $("input:checkbox").prop('checked', false);
+    })
+
+    $("#orderButton").click(function() {
+        $(".receipt").toggle("500ms");
     })
 })
