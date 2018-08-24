@@ -13,3 +13,8 @@ var toppingPricing = {
     "pineapple": 0.59,
     "spinach": 0.49,
 }
+
+Pizza.prototype.getPrice = function() {
+    this.price = sizePricing[this.size] + toppingPricing[this.toppings[0]];
+}
+
