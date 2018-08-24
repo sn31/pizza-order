@@ -5,10 +5,10 @@ function Pizza(size, toppings) {
     this.description = "";
 }
 
-function Order (items, prices) {
- this.items = items;
- this.prices = prices;
+function Order () {
+ this.items = [];
  this.totalPrice = 0;
+ this.tax = 0;
 }
 
 var sizePricing = { "small": 5, "medium": 7, "large": 9 }
@@ -33,11 +33,12 @@ Pizza.prototype.getDescription = function () {
     this.description = this.size + " pizza with " + this.toppings.join(", ");
 }
 
-// Order.prototype.getTotalPrice = function() {
-//     this.totalPrice += 
-// }
+Order.prototype.getTax = function() {
+    this.tax = this.totalPrice*0.1;
+}
 
 $(document).ready(function () {
+    var newOrder = new Order();
     $("#orderInput").submit(function (event) {
         event.preventDefault();
         var toppings = [];
@@ -46,17 +47,16 @@ $(document).ready(function () {
         })
         var size = $("input:radio:checked").val();
         var newPizza = new Pizza(size, toppings);
-        
         newPizza.getPrice();
         newPizza.getDescription();
-        var items = [];
-        items.push(newPizza.description);
-        var prices = 0;
-        prices += (newPizza.price);
-        var newOrder = new Order(items, prices);
-        console.log(newOrder);
+        newOrder.items.push(newPizza.description);
+        newOrder.totalPrice += newPizza.price;
+        newOrder.getTax();
+        
         $("#cartContent").append("<li>" + newPizza.description + "</li>");
-        $("#total").text("$"+newPizza.price);
+        $("#itemPrice").append("<li>" + newPizza.price + "</li>");
+        $("#total").text("$"+ (newOrder.totalPrice + newOrder.tax));
+        $("#tax").text("$"+ newOrder.tax);
         $("input").prop('checked', false);
     })
 })
