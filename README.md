@@ -19,6 +19,11 @@ A website for a pizza company where a user can choose one or more individual top
 | The user can order more than 1 pizzas of the same type | Two small pepperoni & pineapple pizza | Price: $13.98
 | The user can order more than 1 pizzas of the different types | One small pepperoni pizza and one medium italian sausage & spinach pizza | Price: $14.97
 
+## Future Features
+
+* The user should be able to remove items from the cart.
+* The user should be able to edit the cart to change the item quantity.
+
 ## Setup/Installation Requirements
 
 1. Clone this repository by using Terminal command:

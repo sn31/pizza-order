@@ -73,7 +73,7 @@ $(document).ready(function () {
         $('html, body').animate({
             scrollTop: $(".info").offset().top
         }, 1000);
-        $(this).prop('disabled', true); //This button should only be clicked once.
+        $(this).prop('disabled', true);
 
     })
 
@@ -87,7 +87,7 @@ $(document).ready(function () {
         var address = $("#address").val();
         var delivery = $("input:radio[name=delivery]:checked").val();
         $(".info").hide();
-
+        $("#anotherOrder").show();
         $("#customerName").text(name);
         $("#confirmOrder").prop('disabled', true);
         if (delivery === "delivery") {
@@ -96,8 +96,9 @@ $(document).ready(function () {
         else { $("#customerAddress").text("Please pick up your order at 123 Pizzalicous Ave, Seattle, WA.") }
     })
 
-
-
+    $("#anotherOrder").click(function() {
+        location.reload(true);
+    })
 
     // Moving letters
     $('.movingHeader .letters').each(function () {
@@ -130,9 +131,12 @@ $(document).ready(function () {
             easing: "easeOutExpo",
             delay: 1000
         });
+
 });
 
-// FUTURE FEATURES: REMOVE ITEMS
+// FUTURE FEATURES: 
+
+//REMOVE ITEMS
 // $("#removeItem").append("<li class='removeItem'>"+newOrder.status+"</li>");
 // $(".removeItem").click(function(){
 //     $(this).text("Removed"); 

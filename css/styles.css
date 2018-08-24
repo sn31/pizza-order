@@ -65,8 +65,30 @@ body {
 }
 
 /* BUTTONS */
-button {
-    margin-left: auto;
-    margin-right: auto;
+
+#anotherOrder {
+    display:none;
 }
 
+/* INPUT */
+input[type="text"], textarea {
+
+    opacity: 0.5; 
+  
+}
+input[type="number"], textarea {
+
+    opacity: 0.5; 
+  
+}
+
+/* IMAGES */
+img {
+    height: 50vh;
+    border-radius: 5%;
+       
+}
+
+#small {
+    height: 20vh;
+}
