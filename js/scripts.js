@@ -65,19 +65,19 @@ $(document).ready(function () {
         $(".receipt").toggle("500ms");
     })
     // Moving letters
-    $('.ml14 .letters').each(function(){
+    $('.movingHeader .letters').each(function(){
         $(this).html($(this).text().replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>"));
       });
       
       anime.timeline({loop: true})
         .add({
-          targets: '.ml14 .line',
+          targets: '.movingHeader .line',
           scaleX: [0,1],
           opacity: [0.5,1],
           easing: "easeInOutExpo",
           duration: 900
         }).add({
-          targets: '.ml14 .letter',
+          targets: '.movingHeader .letter',
           opacity: [0,1],
           translateX: [40,0],
           translateZ: 0,
@@ -89,10 +89,11 @@ $(document).ready(function () {
             return 150 + 25 * i;
           }
         }).add({
-          targets: '.ml14',
+          targets: '.movingHeader',
           opacity: 0,
           duration: 1000,
           easing: "easeOutExpo",
           delay: 1000
         });
-})
+});
+
