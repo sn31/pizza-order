@@ -55,8 +55,8 @@ $(document).ready(function () {
         
         $("#cartContent").append("<li>" + newPizza.description + "</li>");
         $("#itemPrice").append("<li>" + newPizza.price + "</li>");
-        $("#total").text("$"+ (newOrder.totalPrice + newOrder.tax));
-        $("#tax").text("$"+ newOrder.tax);
+        $("#total").text("$"+ (newOrder.totalPrice + newOrder.tax).toFixed(2));
+        $("#tax").text("$"+ (newOrder.tax).toFixed(2));
         $("input").prop('checked', false);
     })
 })
