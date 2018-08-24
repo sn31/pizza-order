@@ -16,8 +16,8 @@ A website for a pizza company where a user can choose one or more individual top
 | ------------- |------------- |:-------------:|
 | The user can select 1 topping and 1 pizza size | One small pepperoni pizza | Price: $5.99
 | The user can select multiple toppings and 1 pizza size | Small pepperoni & pineapple pizza | Price: $6.99
-| The user can order more than 1 pizzas of the same type | Two small pepperoni & pineapple pizza | Price: $13.98
-| The user can order more than 1 pizzas of the different types | One small pepperoni pizza and one medium italian sausage & spinach pizza | Price: $14.97
+| The user can order more than 1 pizza of the same type | Two small pepperoni & pineapple pizza | Price: $13.98
+| The user can order more than 1 pizza of the different types | One small pepperoni pizza and one medium italian sausage & spinach pizza | Price: $14.97
 
 ## Future Features
 
