@@ -5,10 +5,10 @@ function Pizza(size, toppings) {
     this.description = "";
 }
 
-function Order () {
- this.items = [];
- this.totalPrice = 0;
- this.tax = 0;
+function Order() {
+    this.items = [];
+    this.totalPrice = 0;
+    this.tax = 0;
 }
 
 var sizePricing = { "Small": 5, "Medium": 7, "Large": 9 }
@@ -33,8 +33,8 @@ Pizza.prototype.getDescription = function () {
     this.description = (this.toppings.length !== 0) ? (this.size + " pizza with " + this.toppings.join(", ")) : (this.size + " pizza");
 }
 
-Order.prototype.getTax = function() {
-    this.tax = this.totalPrice*0.1;
+Order.prototype.getTax = function () {
+    this.tax = this.totalPrice * 0.1;
 }
 
 $(document).ready(function () {
@@ -52,68 +52,71 @@ $(document).ready(function () {
         newOrder.items.push(newPizza.description);
         newOrder.totalPrice += newPizza.price;
         newOrder.getTax();
-        
+
         $("#cartContent").append("<li>" + newPizza.description + "</li>");
         $("#itemPrice").append("<li> $" + newPizza.price.toFixed(2) + "</li>");
-        $("#total").text("$"+ (newOrder.totalPrice + newOrder.tax).toFixed(2));
-        $(".subTotal").text(" $"+ (newOrder.totalPrice).toFixed(2));
-        $("#tax").text("$"+ (newOrder.tax).toFixed(2));
+        $("#total").text("$" + (newOrder.totalPrice + newOrder.tax).toFixed(2));
+        $(".subTotal").text(" $" + (newOrder.totalPrice).toFixed(2));
+        $("#tax").text("$" + (newOrder.tax).toFixed(2));
         $("input:checkbox").prop('checked', false);
     })
 
-    $("#orderButton").click(function() {
+    $("#orderButton").click(function () {
         $(".info").toggle("500ms");
         $('html, body').animate({
             scrollTop: $(".info").offset().top
         }, 1000);
-        
+
     })
 
-    $("#info").submit(function(event) {
+    $("#info").submit(function (event) {
         event.preventDefault();
         $(".receipt").toggle("500ms");
         $('html, body').animate({
             scrollTop: $(".receipt").offset().top
         }, 1000);
-        var name= $("#name").val();
+        var name = $("#name").val();
         var address = $("#address").val();
+        var delivery = $("input:radio[name=delivery]:checked").val();
+
         $("#customerName").text(name);
-        console.log(name);
-        $("#customerAddress").text(address);
+        console.log(delivery);
+        if (delivery === "delivery") {
+            $("#customerAddress").text("Your order will be delivered to: " + address)
+        }
+        else { $("#customerAddress").text("Please pick up your order at 123 Pizzalicous Ave, Seattle, WA.") }
     })
 
     // Moving letters
-    $('.movingHeader .letters').each(function(){
+    $('.movingHeader .letters').each(function () {
         $(this).html($(this).text().replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>"));
-      });
-      
-      anime.timeline({loop: true})
-        .add({
-          targets: '.movingHeader .line',
-          scaleX: [0,1],
-          opacity: [0.5,1],
-          easing: "easeInOutExpo",
-          duration: 900
-        }).add({
-          targets: '.movingHeader .letter',
-          opacity: [0,1],
-          translateX: [40,0],
-          translateZ: 0,
-          scaleX: [0.3, 1],
-          easing: "easeOutExpo",
-          duration: 800,
-          offset: '-=600',
-          delay: function(el, i) {
-            return 150 + 25 * i;
-          }
-        }).add({
-          targets: '.movingHeader',
-          opacity: 0,
-          duration: 1000,
-          easing: "easeOutExpo",
-          delay: 1000
-        });
+    });
 
-        
+    anime.timeline({ loop: true })
+        .add({
+            targets: '.movingHeader .line',
+            scaleX: [0, 1],
+            opacity: [0.5, 1],
+            easing: "easeInOutExpo",
+            duration: 900
+        }).add({
+            targets: '.movingHeader .letter',
+            opacity: [0, 1],
+            translateX: [40, 0],
+            translateZ: 0,
+            scaleX: [0.3, 1],
+            easing: "easeOutExpo",
+            duration: 800,
+            offset: '-=600',
+            delay: function (el, i) {
+                return 150 + 25 * i;
+            }
+        }).add({
+            targets: '.movingHeader',
+            opacity: 0,
+            duration: 1000,
+            easing: "easeOutExpo",
+            delay: 1000
+        });
 });
 
