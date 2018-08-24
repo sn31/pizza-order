@@ -71,18 +71,42 @@
                                 <input type="radio" name="optradio" value="large">&nbsp;&nbsp;Large</label>
                         </div>
                     </div>
-                    <br>
-                    <button type="submit" class="btn btn-success">Add to Cart</button>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-success">Add to Cart</button>
             </form>
+            <br>
         </section>
         <section class="receipt">
-            <p>Customer's Name:&nbsp;
-                <span id="name"></span>
-            </p>
-            <p>Order:</p>
-            <ul id="cartContent">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Cart</h4>
+                </div>
+                <div class="card-body">
+                    <p>Customer's Name:&nbsp;
+                        <span id="name"></span>
+                    </p>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h6>Items</h6>
+                            <ul id="cartContent">
 
-            </ul>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <h6>Quantity</h6>
+                        </div>
+                    </div>
+                    <h6>Subtotal</h6>
+                    <p>Tax:&nbsp;
+                        <span id="tax"></span>
+                    </p>
+                    <p>Total:&nbsp;
+                        <span id="total"></span>
+                    </p>
+                </div>
+            </div>
+
         </section>
 
     </main>
