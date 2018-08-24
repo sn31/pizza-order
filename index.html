@@ -81,6 +81,8 @@
                                 </div>
                             </div>
                             <br>
+                            <label>How many of these would you like to order?</label>
+                            <input id="quantityOrder" type="number" class="form-control" required><br>
                             <button type="submit" class="btn btn-success">Add to Cart</button>
                         </form>
                         <br>
@@ -109,6 +111,9 @@
                                     <div class="col-md-3">
                                         <h6>Quantity</h6>
                                         <hr>
+                                        <ul id="quantity">
+
+                                        </ul>
                                     </div>
                                 </div>
                                 <hr>
@@ -123,7 +128,7 @@
                                             <span id="tax">$0.00</span>
                                         </p>
                                         <h5>Total:&nbsp;
-                                            <span id="total">$0.00</span>
+                                            <span class="total">$0.00</span>
                                         </h5>
                                     </div>
                                 </div>
@@ -143,7 +148,7 @@
                                 <div class="col-md-12">
                                     <form id="info">
                                         <div class="row">
-                                            <div class="col-md-9">
+                                            <div class="col-md-8">
                                                 <div class="form-group row">
                                                     <div class="col-md-8">
                                                         <label>Name:</label>
@@ -160,7 +165,7 @@
                                                 <br>
                                                 <button id="confirmOrder" class="btn">Confirm Order</button>
                                             </div>
-                                            <div class="col-md-3">
+                                            <div class="col-md-4">
                                                 <label>Delivery Options</label>
                                                 <label class="radio">
                                                     <input type="radio" name="delivery" value="delivery" checked>&nbsp;&nbsp;Delivery</label>&nbsp;&nbsp;&nbsp;
@@ -171,19 +176,23 @@
                                     </form>
                                 </div>
                             </div>
-                        </div><br>
+                        </div>
+                        <br>
                         <div class="card receipt">
                             <div class="card-header">
                                 <h4 class="card-title">Receipt</h4>
                             </div>
                             <div class="card-body">
-                                <p><span id="customerName"></span>, thank you for ordering! Your total is:
-                                    <span class="subTotal"></span>.
+                                <p>
+                                    <span id="customerName"></span>, thank you for ordering! Your total is:
+                                    <span class="total"></span>.
                                 </p>
-                                <p><span id="customerAddress"></span></p>
+                                <p>
+                                    <span id="customerAddress"></span>
+                                </p>
                             </div>
+                            <br>
                         </div>
-
                     </div>
                 </div>
             </section>
@@ -194,3 +203,4 @@
 </body>
 
 </html>
+

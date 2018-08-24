@@ -9,6 +9,8 @@ function Order() {
     this.items = [];
     this.totalPrice = 0;
     this.tax = 0;
+    this.status = "X"
+    this.quantity = 0;
 }
 
 var sizePricing = { "Small": 5, "Medium": 7, "Large": 9 }
@@ -46,19 +48,24 @@ $(document).ready(function () {
             toppings.push($(this).val());
         })
         var size = $("input:radio:checked").val();
+        var quantity = parseInt($("#quantityOrder").val());
         var newPizza = new Pizza(size, toppings);
+
         newPizza.getPrice();
         newPizza.getDescription();
         newOrder.items.push(newPizza.description);
-        newOrder.totalPrice += newPizza.price;
+        newOrder.quantity = quantity;
+        newOrder.totalPrice += newOrder.quantity * newPizza.price;
         newOrder.getTax();
 
         $("#cartContent").append("<li>" + newPizza.description + "</li>");
         $("#itemPrice").append("<li> $" + newPizza.price.toFixed(2) + "</li>");
-        $("#total").text("$" + (newOrder.totalPrice + newOrder.tax).toFixed(2));
+        $("#quantity").append("<li>" + newOrder.quantity + "</li>");
+        $(".total").text("$" + (newOrder.totalPrice + newOrder.tax).toFixed(2));
         $(".subTotal").text(" $" + (newOrder.totalPrice).toFixed(2));
         $("#tax").text("$" + (newOrder.tax).toFixed(2));
         $("input:checkbox").prop('checked', false);
+
     })
 
     $("#orderButton").click(function () {
@@ -66,6 +73,7 @@ $(document).ready(function () {
         $('html, body').animate({
             scrollTop: $(".info").offset().top
         }, 1000);
+        $(this).prop('disabled', true); //This button should only be clicked once.
 
     })
 
@@ -78,14 +86,18 @@ $(document).ready(function () {
         var name = $("#name").val();
         var address = $("#address").val();
         var delivery = $("input:radio[name=delivery]:checked").val();
+        $(".info").hide();
 
         $("#customerName").text(name);
-        console.log(delivery);
+        $("#confirmOrder").prop('disabled', true);
         if (delivery === "delivery") {
             $("#customerAddress").text("Your order will be delivered to: " + address)
         }
         else { $("#customerAddress").text("Please pick up your order at 123 Pizzalicous Ave, Seattle, WA.") }
     })
+
+
+
 
     // Moving letters
     $('.movingHeader .letters').each(function () {
@@ -120,3 +132,10 @@ $(document).ready(function () {
         });
 });
 
+// FUTURE FEATURES: REMOVE ITEMS
+// $("#removeItem").append("<li class='removeItem'>"+newOrder.status+"</li>");
+// $(".removeItem").click(function(){
+//     $(this).text("Removed"); 
+//     newPizza.description = "";
+//     newPizza.price = 0;
+// })
