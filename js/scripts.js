@@ -62,8 +62,26 @@ $(document).ready(function () {
     })
 
     $("#orderButton").click(function() {
-        $(".receipt").toggle("500ms");
+        $(".info").toggle("500ms");
+        $('html, body').animate({
+            scrollTop: $(".info").offset().top
+        }, 1000);
+        
     })
+
+    $("#info").submit(function(event) {
+        event.preventDefault();
+        $(".receipt").toggle("500ms");
+        $('html, body').animate({
+            scrollTop: $(".receipt").offset().top
+        }, 1000);
+        var name= $("#name").val();
+        var address = $("#address").val();
+        $("#customerName").text(name);
+        console.log(name);
+        $("#customerAddress").text(address);
+    })
+
     // Moving letters
     $('.movingHeader .letters').each(function(){
         $(this).html($(this).text().replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>"));
@@ -95,5 +113,7 @@ $(document).ready(function () {
           easing: "easeOutExpo",
           delay: 1000
         });
+
+        
 });
 
